@@ -20,6 +20,9 @@ import org.jetbrains.anko.toast
 import java.io.File
 import java.io.FileOutputStream
 import java.io.IOException
+import jp.co.cyberagent.android.gpuimage.GPUImageView
+
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 class PhotoFilterActivity : AppCompatActivity() {
@@ -146,9 +149,11 @@ class PhotoFilterActivity : AppCompatActivity() {
 
     var out: FileOutputStream? = null
     val bitmap = gpuImage.gpuImage.bitmapWithFilterApplied
+
     try {
       out = FileOutputStream(file)
       bitmap.compress(Bitmap.CompressFormat.PNG, 100, out)
+
     } catch (e: Exception) {
       e.printStackTrace()
     } finally {
